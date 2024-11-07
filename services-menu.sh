@@ -29,30 +29,30 @@ action2_create(){
 }
 
 action3_diff(){
-	dir1_path=""
-	dir2_path=""
-	read -p "$( echo -e 'Introduce la dirección del primer directorio/archivo\n> ')" dir1_path
-	if [ ! -d $dir1_path ]; then
+	file1_path=""
+	file2_path=""
+	read -p "$( echo -e 'Introduce la dirección del primer archivo\n> ')" file1_path
+	if [ ! -f $file1_path ]; then
 		while true
 		do
-			read -p "$( echo -e 'Error: No encontrado, intentalo de nuevo\n> ')" dir1_path
-			if [ -d $dir1_path ]; then
+			read -p "$( echo -e 'Error: No encontrado, intentalo de nuevo\n> ')" file1_path
+			if [ -f $file1_path ]; then
 				break
 			fi
 		done
 	fi
-	read -p "$( echo -e 'Introduce la dirección del segundo directorio/archivo\n> ')" dir2_path
-	if [ ! -d $dir2_path ]; then
+	read -p "$( echo -e 'Introduce la dirección del segundo archivo\n> ')" file2_path
+	if [ ! -f $file2_path ]; then
 		while true
 		do
-			read -p "$( echo -e 'Error: No encontrado, intentalo de nuevo\n> ')" dir2_path
-			if [ -d $dir2_path ]; then
+			read -p "$( echo -e 'Error: No encontrado, intentalo de nuevo\n> ')" file2_path
+			if [ -f $file2_path ]; then
 				break
 			fi
 		done
 	fi
 	echo -e "\n"
-	diff "$dir1_path" "$dir2_path"
+	diff "$file1_path" "$file2_path"
 }
 
 action4_awk(){
